@@ -1,10 +1,13 @@
-# Skill Gaps and Next Actions
+# Skill Gaps and Review Queue
 
-Keep this list short and actionable. Add a gap only when an assessment, implementation, test, review or interview exposes it.
+Only add a gap when evidence identifies it. Keep the list ordered by dependency and relevance to the active roadmap phase.
 
-| Priority | Skill/concept | Evidence of gap | Next action | Recheck criteria | Status |
+| Priority | Domain / concept | Evidence of gap | Planned practice / resource | Reassessment criterion | Status |
 |---|---|---|---|---|---|
-| | | | | | Open |
+| P0 | Baseline not yet assessed | No diagnostic evidence recorded | Complete prerequisite assessment | Pass practical self-tests or schedule targeted refresher | OPEN |
 
-## Revisited gaps
-Record the date and evidence when a gap is addressed. Do not delete the learning history; mark it resolved and link the evidence.
+## Rules
+- Distinguish `not assessed` from `does not know`.
+- Do not infer weakness from a single missed question; probe understanding and practice.
+- Close a gap only when the reassessment criterion is demonstrated.
+- If a topic is deferred by design, track it in `PHASE_TRACKER.md`, not as a weakness.
