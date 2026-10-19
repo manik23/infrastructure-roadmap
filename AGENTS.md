@@ -63,3 +63,30 @@ Do not advance merely because a week elapsed. Use the relevant exit criteria in 
 - Use short ADRs under the flagship project's `docs/decisions/` for significant architecture choices.
 - Review links and framework versions quarterly. Do not replace durable theory with tool churn.
 - Keep any generated code, docs and prompts understandable to a human engineer; avoid unexplained complexity.
+
+
+## Session continuity and Git checkpoint protocol
+
+Git plus the tracked progress files are the source of truth. Do not rely on conversational memory to infer where the learner stopped. At every new session, perform the resume protocol before teaching or editing code.
+
+### Start-of-session protocol (mandatory)
+1. Identify the repository root and active branch (`git rev-parse --show-toplevel`, `git status --short --branch`).
+2. If a remote upstream exists and network access is available, refresh remote-tracking refs with `git fetch --prune` before deciding whether the local branch is synced. Fetching is allowed; committing, pushing, resetting, cleaning, rebasing or switching branches is not automatic.
+3. Inspect the latest commit (`git log -1 --format='%h %cs %s'`) and compare local HEAD with its upstream. Check `git status`, staged/unstaged diff summaries and untracked files.
+4. Read `progress/CURRENT_STATE.md`, `progress/PHASE_TRACKER.md`, the latest relevant entries in `progress/weekly-log.md`, and `progress/skill-gaps.md`. Then read only the relevant roadmap section.
+5. State a compact resume summary: branch/commit status; last completed and verified checkpoint; uncommitted or unpushed work; active phase/week/task; next action; and any blocker.
+6. If there are uncommitted changes, local commits not pushed, remote commits not integrated, no upstream, or ambiguity about which checkpoint is authoritative, do not discard, overwrite, reset or silently switch branches. Explain the situation and ask which state to continue from. Preserve all work.
+7. If the tree is clean and HEAD matches the fetched upstream, resume from the latest pushed commit and the progress ledger. If progress files disagree with the repository evidence, do not guess: report the conflict and reconcile it with the learner.
+
+### End-of-session checkpoint protocol (mandatory)
+1. Update `progress/CURRENT_STATE.md` with the concrete task completed, verification actually run, remaining gaps and one next action. Update `progress/weekly-log.md`, `progress/skill-gaps.md` and `progress/PHASE_TRACKER.md` when relevant.
+2. Record exact commands and results. Never mark a test passed if it was not run. Distinguish `implemented`, `tested`, `reviewed` and `demonstrated`.
+3. Provide a short suggested commit message and list the files changed. Ask the learner to review, commit and push the project plus progress records. Do not commit or push unless the learner explicitly authorizes that action in the current context.
+4. A checkpoint is considered **shared/resumable on another session or machine only after the progress record and relevant work are committed and pushed**. Until then, label it local/unpublished.
+5. Do not edit a progress file merely to claim persistence. Confirm the file changed in the repository and include it in the change summary.
+
+### Safety and recovery
+- Never run destructive Git commands (including `reset --hard`, `clean -fd`, force push, or branch deletion) to resolve progress conflicts.
+- Do not stash, amend, rebase, cherry-pick or switch branches without explicit approval when that could change the learner's work.
+- If the remote cannot be reached, say that sync status is unverified and do not claim the latest checkpoint was pushed. Work locally only if the learner agrees or the existing state is unambiguous.
+- Prefer a small checkpoint commit after each meaningful task/session, including the progress ledger and tests/docs. Commit messages should identify the phase/topic and the outcome.
