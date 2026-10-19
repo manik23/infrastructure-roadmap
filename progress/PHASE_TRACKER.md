@@ -4,13 +4,13 @@ Update status only when evidence supports it. Suggested statuses: `NOT STARTED`,
 
 | Phase | Status | Evidence / checkpoint | Remaining gaps | Next action |
 |---|---|---|---|---|
-| Prerequisite assessment | IN PROGRESS | Not assessed yet | Baseline skill evidence missing | Complete prerequisite assessment |
+| Prerequisite assessment | PASSED | 2026-10-19 practical diagnostics recorded for all eight domains in `progress/BASELINE_ASSESSMENT.md` | Focused prerequisite block required; see `progress/skill-gaps.md` | Complete prerequisite labs and reassess their exit tests before Phase 1 |
 | Phase 1 — Systems foundations | NOT STARTED | — | — | Placement decision after assessment |
 | Phase 2 — Distributed systems | NOT STARTED | — | — | Follow roadmap sequence |
 | Phase 3 — Control planes and scheduling | NOT STARTED | — | — | Follow roadmap sequence |
 | Phase 4 — Production platform engineering | NOT STARTED | — | — | Follow roadmap sequence |
 | Phase 5 — AI infrastructure | NOT STARTED | — | — | Follow roadmap sequence |
-| Follow-up — Rust systems programming | DEFERRED (PLANNED) | Sequence retained in roadmap | Core-path prerequisites not yet assessed | Start when sequence/role supports it |
+| Follow-up — Rust systems programming | DEFERRED (PLANNED) | Sequence retained in roadmap; no earlier Rust need found during baseline assessment | Core prerequisite block incomplete | Start when the core path has sufficient momentum or a concrete role/project requires it |
 | Follow-up — storage internals | DEFERRED (PLANNED) | Sequence retained in roadmap | — | After core path or role-driven need |
 | Follow-up — streaming and durable execution | DEFERRED (PLANNED) | Sequence retained in roadmap | — | After core path or role-driven need |
 | Follow-up — kernel / high-performance networking | DEFERRED (PLANNED) | Sequence retained in roadmap | — | After core path or role-driven need |
