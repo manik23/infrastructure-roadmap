@@ -4,7 +4,7 @@ Update status only when evidence supports it. Suggested statuses: `NOT STARTED`,
 
 | Phase | Status | Evidence / checkpoint | Remaining gaps | Next action |
 |---|---|---|---|---|
-| Prerequisite assessment | PASSED | 2026-10-19 practical diagnostics recorded for all eight domains in `progress/BASELINE_ASSESSMENT.md` | Focused prerequisite block required; see `progress/skill-gaps.md` | Complete prerequisite labs and reassess their exit tests before Phase 1 |
+| Prerequisite assessment | IN PROGRESS | Initial diagnostics completed 2026-10-19; 2026-10-20 added Linux triage (**Practiced**), HTTPS path (**Demonstrated** for baseline scope), and OS-memory/reclaim (**Practiced**) evidence in `progress/BASELINE_ASSESSMENT.md` | Focused prerequisite exit tests remain: Linux interpretation refresh, OS OOM logs on a Linux VM, Go worker pool, Kubernetes cleanup, cloud IAM/cost, Git bisection, and container CI | Define then implement the bounded Go worker-pool lab with cancellation, shutdown, result/error semantics, and race-clean tests |
 | Phase 1 — Systems foundations | NOT STARTED | — | — | Placement decision after assessment |
 | Phase 2 — Distributed systems | NOT STARTED | — | — | Follow roadmap sequence |
 | Phase 3 — Control planes and scheduling | NOT STARTED | — | — | Follow roadmap sequence |

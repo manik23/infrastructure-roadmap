@@ -1,6 +1,6 @@
 # Revision-to-Roadmap Map
 
-Use this table as the only routing index for revision updates. The roadmap remains authoritative; these files are intentionally shorter.
+Use this table as the only routing index for revision updates. `ROADMAP_2030_REVISED.md` remains authoritative for phase order, scope, resources, deliverables, and exit criteria; the map and revision notes are intentionally shorter derived aids. Keep Phase 1–7 titles and order identical to the roadmap, and run `./scripts/check-revision-roadmap-alignment.sh` after changing this map or `notes/core-phases.md`.
 
 | Roadmap section | Revision notes | Cheatsheet | Update trigger |
 |---|---|---|---|

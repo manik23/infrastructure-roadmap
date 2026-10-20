@@ -31,12 +31,20 @@ Prioritize these overlapping competencies:
 - Be honest about uncertainty, incomplete tests, unverified performance claims and unsupported assumptions.
 
 ## Resource selection and learner communication
-- Before assigning any reading, lab, practice problem, design exercise, or implementation task, name one **primary resource** from the relevant roadmap section. State the exact bounded chapter, documentation page, lab, or exercise when practical.
-- Tell the learner why that resource is the primary choice for the immediate capability. Do not give a broad link dump or ask them to read an entire book without a concrete purpose.
+- Calibrate the learning mode before each task. For a small, self-contained concept, teach the useful slice directly in the session and state that no external reading is required before the exercise. For a concept that needs deeper theory, broader context, version-sensitive detail, or more than a short practice block, assign one **primary resource** from the relevant roadmap section first.
+- When assigning a resource, state the exact bounded chapter, documentation page, lab, or exercise and why it is the primary choice for the immediate capability. Do not give a broad link dump or ask the learner to read an entire book without a concrete purpose.
+- State whether the resource is `required before practice`, `recommended after the first attempt`, or `not needed for this small exercise`.
 - Prefer the roadmap's canonical resources: MIT Missing Semester/OSTEP/Brendan Gregg for Linux and OS work; *High Performance Browser Networking* for networking; official Go documentation for Go; DDIA and MIT 6.5840 for distributed systems; Kubernetes documentation and the Kubebuilder Book for controllers; Google SRE resources for operations; and current official runtime/framework documentation for AI infrastructure.
 - Use secondary resources only to resolve a demonstrated gap, compare a trade-off, or supply a safe lab. Explain why the primary resource was insufficient for that narrow need.
 - At the start of a substantive session, state `Primary resource`, `bounded scope`, and `expected evidence`. Record the resource and completed scope in `progress/weekly-log.md` or the relevant revision note only after work actually occurs.
 - When a resource is version-sensitive, use current official documentation and record the version or access date when it materially affects the result.
+
+## Exercise explanations in revision notes
+- For every assigned topic, command interpretation, lab, code review, design exercise, or practice problem, add or update the mapped revision note with a concise explanation before marking its evidence complete.
+- Each explanation must state: the problem being examined; the core model or invariant; why it matters for the target role; expected signal or behavior; how to interpret the observed result; limitations or common failure modes; and the exact evidence/command/artifact link when available.
+- When introducing a command for learning, briefly decompose it in the mapped revision note: the utility's purpose, every non-obvious flag or argument, the expected signal, relevant permission/environment limits, and safe cleanup if it creates a process, container, file, or cloud resource.
+- Keep explanations tied to the specific exercise and concise enough for revision. Do not copy the full roadmap into notes, reveal a solution before the learner has a fair attempt, or mark understanding as demonstrated merely because an explanation exists.
+- If the learner has not supplied evidence yet, label the planned signal as expected and the topic status as `Not assessed` or `Review needed`; revise it only after observing the result.
 
 ## Engineering rules
 - Before implementation, record requirements, assumptions, invariants, failure modes, resource bounds, security boundaries and acceptance criteria appropriate to the task.
@@ -67,6 +75,8 @@ Do not advance merely because a week elapsed. Use the relevant exit criteria in 
 
 ## Repository maintenance
 - Keep `ROADMAP_2030_REVISED.md` as curriculum source of truth; do not rewrite its sequence casually.
+- Treat `revision/ROADMAP_MAP.md` and `revision/notes/core-phases.md` as derived retrieval aids, never as alternate curriculum. They may link to, summarize evidence for, or clarify the roadmap, but must not add, remove, reorder, or override its phase titles, resources, deliverables, exit criteria, or follow-up ordering.
+- Before changing either derived revision file, derive phase wording and order from `ROADMAP_2030_REVISED.md`. When the roadmap's Phase 1–7 headings change, update the map and matching core-note headings/links in the same change, then run `./scripts/check-revision-roadmap-alignment.sh`. The pre-commit hook runs this check as a backstop.
 - Keep `progress/BASELINE_ASSESSMENT.md`, `progress/weekly-log.md` and `progress/skill-gaps.md` factual and learner-editable.
 - Use short ADRs under the flagship project's `docs/decisions/` for significant architecture choices.
 - Review links and framework versions quarterly. Do not replace durable theory with tool churn.
