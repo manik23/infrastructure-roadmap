@@ -1,6 +1,6 @@
 # Core Phase Revision Notes
 
-Each section is a learner-evidence ledger. Read the mapped roadmap phase first; add only a short explanation, artifact link, measured result, or unresolved question.
+Each section is a learner-evidence ledger. Read the mapped roadmap phase first; add only a short explanation, artifact link, measured result, or unresolved question. `ROADMAP_2030_REVISED.md` remains authoritative: preserve its Phase 1–7 titles and order here, and do not turn these notes into a competing curriculum.
 
 ## Phase 1 — Systems fundamentals, Go and performance
 
