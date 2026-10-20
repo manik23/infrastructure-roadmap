@@ -30,6 +30,14 @@ Prioritize these overlapping competencies:
 - Maintain both engineering depth and interview readiness: Go/DSA practice, low-level design, distributed-systems/system design, project explanation and written communication.
 - Be honest about uncertainty, incomplete tests, unverified performance claims and unsupported assumptions.
 
+## Resource selection and learner communication
+- Before assigning any reading, lab, practice problem, design exercise, or implementation task, name one **primary resource** from the relevant roadmap section. State the exact bounded chapter, documentation page, lab, or exercise when practical.
+- Tell the learner why that resource is the primary choice for the immediate capability. Do not give a broad link dump or ask them to read an entire book without a concrete purpose.
+- Prefer the roadmap's canonical resources: MIT Missing Semester/OSTEP/Brendan Gregg for Linux and OS work; *High Performance Browser Networking* for networking; official Go documentation for Go; DDIA and MIT 6.5840 for distributed systems; Kubernetes documentation and the Kubebuilder Book for controllers; Google SRE resources for operations; and current official runtime/framework documentation for AI infrastructure.
+- Use secondary resources only to resolve a demonstrated gap, compare a trade-off, or supply a safe lab. Explain why the primary resource was insufficient for that narrow need.
+- At the start of a substantive session, state `Primary resource`, `bounded scope`, and `expected evidence`. Record the resource and completed scope in `progress/weekly-log.md` or the relevant revision note only after work actually occurs.
+- When a resource is version-sensitive, use current official documentation and record the version or access date when it materially affects the result.
+
 ## Engineering rules
 - Before implementation, record requirements, assumptions, invariants, failure modes, resource bounds, security boundaries and acceptance criteria appropriate to the task.
 - Prefer small, reviewable changes and clear interfaces. Avoid building production-scale clones of mature systems unless the roadmap specifically calls for a bounded educational implementation.
@@ -81,9 +89,10 @@ Git plus the tracked progress files are the source of truth. Do not rely on conv
 ### End-of-session checkpoint protocol (mandatory)
 1. Update `progress/CURRENT_STATE.md` with the concrete task completed, verification actually run, remaining gaps and one next action. Update `progress/weekly-log.md`, `progress/skill-gaps.md` and `progress/PHASE_TRACKER.md` when relevant.
 2. Record exact commands and results. Never mark a test passed if it was not run. Distinguish `implemented`, `tested`, `reviewed` and `demonstrated`.
-3. Provide a short suggested commit message and list the files changed. Ask the learner to review, commit and push the project plus progress records. Do not commit or push unless the learner explicitly authorizes that action in the current context.
-4. A checkpoint is considered **shared/resumable on another session or machine only after the progress record and relevant work are committed and pushed**. Until then, label it local/unpublished.
-5. Do not edit a progress file merely to claim persistence. Confirm the file changed in the repository and include it in the change summary.
+3. When documentation or code changed and a Graphify backend is explicitly approved and available for the session, run `GRAPHIFY_SESSION_GRAPH_APPROVED=1 ./scripts/update-roadmap-graph.sh`. Record whether it updated, skipped, or failed; no configured backend is a valid `skipped` outcome. Never claim that a graph was refreshed without `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md`.
+4. Provide a short suggested commit message and list the files changed. Ask the learner to review, commit and push the project plus progress records and successful graph artifacts. Do not commit or push unless the learner explicitly authorizes that action in the current context.
+5. A checkpoint is considered **shared/resumable on another session or machine only after the progress record and relevant work are committed and pushed**. Until then, label it local/unpublished.
+6. Do not edit a progress file merely to claim persistence. Confirm the file changed in the repository and include it in the change summary.
 
 ### Safety and recovery
 - Never run destructive Git commands (including `reset --hard`, `clean -fd`, force push, or branch deletion) to resolve progress conflicts.

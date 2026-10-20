@@ -1,0 +1,17 @@
+# Revision-to-Roadmap Map
+
+Use this table as the only routing index for revision updates. The roadmap remains authoritative; these files are intentionally shorter.
+
+| Roadmap section | Revision notes | Cheatsheet | Update trigger |
+|---|---|---|---|
+| Entry assessment and lab environment | [Prerequisites](notes/00-prerequisites.md) | [Prerequisites](cheatsheets/00-prerequisites.md) | Baseline evidence, environment verification, or prerequisite reassessment |
+| Phase 1 — Systems fundamentals, Go and performance | [Core phases: Phase 1](notes/core-phases.md#phase-1--systems-fundamentals-go-and-performance) | [Core phases: Phase 1](cheatsheets/core-phases.md#phase-1--systems-fundamentals-go-and-performance) | Lab, profile, benchmark, concurrency test, or remediation result |
+| Phase 2 — Distributed systems correctness and fault tolerance | [Core phases: Phase 2](notes/core-phases.md#phase-2--distributed-systems-correctness-and-fault-tolerance) | [Core phases: Phase 2](cheatsheets/core-phases.md#phase-2--distributed-systems-correctness-and-fault-tolerance) | Protocol model, fault test, invariant test, or postmortem |
+| Phase 3 — Kubernetes control planes, resource management and scheduling | [Core phases: Phase 3](notes/core-phases.md#phase-3--kubernetes-control-planes-resource-management-and-scheduling) | [Core phases: Phase 3](cheatsheets/core-phases.md#phase-3--kubernetes-control-planes-resource-management-and-scheduling) | Controller/scheduler test, design decision, or recovery evidence |
+| Phase 4 — Production platform engineering, SRE, delivery and security basics | [Core phases: Phase 4](notes/core-phases.md#phase-4--production-platform-engineering-sre-delivery-and-security-basics) | [Core phases: Phase 4](cheatsheets/core-phases.md#phase-4--production-platform-engineering-sre-delivery-and-security-basics) | Deployment, SLO, security, recovery, or incident evidence |
+| Phase 5 — AI compute, inference infrastructure and cost-aware orchestration | [Core phases: Phase 5](notes/core-phases.md#phase-5--ai-compute-inference-infrastructure-and-cost-aware-orchestration) | [Core phases: Phase 5](cheatsheets/core-phases.md#phase-5--ai-compute-inference-infrastructure-and-cost-aware-orchestration) | Reproducible serving, scheduling, scaling, or cost experiment |
+| Phase 6 — Kernel observability, isolation, security and economics | [Core phases: Phase 6](notes/core-phases.md#phase-6--kernel-observability-isolation-security-and-economics) | [Core phases: Phase 6](cheatsheets/core-phases.md#phase-6--kernel-observability-isolation-security-and-economics) | Isolated host/runtime observation or security/economics evidence |
+| Phase 7 — Consolidation, interviews and portfolio polish | [Core phases: Phase 7](notes/core-phases.md#phase-7--consolidation-interviews-and-portfolio-polish) | [Core phases: Phase 7](cheatsheets/core-phases.md#phase-7--consolidation-interviews-and-portfolio-polish) | Mock interview, portfolio review, or targeted remediation result |
+| Continuous tracks and sequenced follow-ups | [Continuous and follow-ups](notes/continuous-and-follow-ups.md) | [Continuous and follow-ups](cheatsheets/continuous-and-follow-ups.md) | DSA/design practice, research note, or role-driven follow-up decision |
+
+When a heading changes in the roadmap, update this map and the corresponding heading links in the same change.

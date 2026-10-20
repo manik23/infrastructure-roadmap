@@ -5,28 +5,29 @@
 ## Status
 - **Checkpoint status:** IN PROGRESS — targeted prerequisite block prescribed
 - **Active phase:** Prerequisite block
-- **Active week/task:** Start Linux service-triage lab; do not begin Phase 1 yet
-- **Last verified checkpoint:** 2026-10-19 baseline assessment completed across eight domains
-- **Last verified commit:** `1c11214` on local `main`, aligned with `origin/main` before local assessment-record edits
-- **Remote sync:** Local `main` aligned with `origin/main` at the last verification; assessment records have uncommitted local edits
+- **Active week/task:** Continue Linux service-triage lab: capture listener/PID, FD, `/proc`, and container-log evidence; do not begin Phase 1 yet
+- **Last verified checkpoint:** 2026-10-19 baseline assessment completed across eight domains and committed
+- **Last verified commit:** `0828d14` on `baseline_tested`, matching `origin/baseline_tested`
+- **Remote sync:** `baseline_tested` verified aligned with `origin/baseline_tested` on 2026-10-20; no working-tree changes before this checkpoint correction
 
 ## Last session summary
-- **Date:** 2026-10-19
-- **Objective:** Establish baseline skill level without assuming beginner status
-- **Completed work:** Interactive practical diagnostics across Linux, networking, OS/memory, Go, Kubernetes, cloud/IAM, DSA, and workflow
-- **Evidence:** Recorded in `progress/BASELINE_ASSESSMENT.md`; gaps limited to observed misunderstandings or stated missing knowledge
-- **Tests/commands actually run:** Learner ran `docker version --format '{{.Server.Os}}/{{.Server.Arch}} {{.Server.Version}}'` → `linux/arm64 29.8.2`; `docker run --rm alpine:3.20 uname -a` → Linux 7.0.14-linuxkit/aarch64; `go version` → Go 1.27.1 darwin/arm64; and `git --version` → Git 2.54.0. `git diff --cached --check` passed. The Linux triage lab commands, learner tests, and benchmarks were not run.
-- **Open gaps/blockers:** Targeted prerequisite block is required before Phase 1
+- **Date:** 2026-10-20
+- **Objective:** Create a roadmap-linked revision layer and begin the Linux service-triage prerequisite lab.
+- **Completed work:** Added `revision/` notes, cheatsheets, and roadmap map. A disposable local HTTP server returned `HTTP/1.0 200 OK` to `curl`.
+- **Evidence:** Revision documents map each phase to the authoritative roadmap. The HTTP response proves localhost request delivery and application response only; it does not prove listener/PID, FD, syscall, or logging diagnosis.
+- **Tests/commands actually run:** Learner ran `curl -i http://127.0.0.1:18080/` and received `HTTP/1.0 200 OK`. Agent ran `git fetch --prune` (succeeded; `baseline_tested` matched upstream), `git diff --check` (passed), and documentation inspection commands. `graphify ROADMAP_2030_REVISED.md --no-viz` failed because the CLI requires a directory; `graphify . --no-viz` found 15 docs but stopped because this installed version requires an external semantic-extraction key. No benchmark, syscall trace, learner automated test, or full triage lab was run.
+- **Open gaps/blockers:** Targeted prerequisite block remains required before Phase 1. Linux triage evidence is incomplete; the optional graph output was not produced and does not block the repository-native revision map.
 
 ## Resume here next session
 1. Inspect Git status, latest commit and upstream sync using the start-of-session protocol in `AGENTS.md`.
-2. Run the Linux service-triage prerequisite lab and capture observed evidence.
+2. Continue the Linux service-triage lab and capture `ss`, `lsof`, `/proc`, and container-log evidence.
 3. Reassess only its stated exit test, then continue the focused prerequisite plan.
 4. Update progress records only from observed evidence.
 
 ## Next action
-Complete the focused prerequisite plan and reassess its exit tests before Phase 1 placement is revised.
+Capture the remaining Linux service-triage evidence, interpret it, and reassess that exit test before continuing the focused prerequisite plan.
 
 ## Decision log
 - Keep `ROADMAP_2030_REVISED.md` as the curriculum source of truth.
 - Keep Go/control-plane/distributed systems as the core path; Rust remains a sequenced follow-up unless explicitly requested earlier.
+- Keep phase revision notes and cheatsheets under `revision/`; `revision/ROADMAP_MAP.md` maps them to roadmap sections and defines the agent update contract.

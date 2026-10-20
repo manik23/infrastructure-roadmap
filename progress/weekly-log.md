@@ -45,3 +45,20 @@ Append a new entry for each meaningful study session. Prefer one entry per sessi
 - **Gaps / incorrect assumptions found:** Linux process/socket/syscall triage; HTTPS failure classification; page-cache/RSS distinction; Go worker lifecycle; Kubernetes `404` cleanup idempotency; cloud IAM/cost controls; Git bisection; container runtime/CI smoke tests.
 - **Next action:** Run the proposed disposable Linux HTTP-service triage lab and capture listener, FD, `/proc`, request, and container-log evidence. The lab itself is **not run**.
 - **Git checkpoint:** `main` aligned with `origin/main` at `1c11214` before local progress edits. Five progress files are staged locally; no commit or push was made. `stash@{0}` remains as a recoverable autostash safety copy.
+
+---
+
+## Session checkpoint
+- **Date:** 2026-10-20
+- **Phase / week:** Targeted prerequisite block — Linux service triage
+- **Objective:** Add a roadmap-linked revision system and obtain the first local HTTP-service observation.
+- **Resource and section:** `ROADMAP_2030_REVISED.md` entry assessment/lab environment; `revision/ROADMAP_MAP.md`.
+- **Concepts / invariants:** Revision documents are retrieval aids, not curriculum authority. A successful HTTP response proves request delivery and application response, not process/socket/FD/syscall diagnosis.
+- **Work completed:** Added the `revision/` map, notes, and cheatsheets; linked the folder from the README. Performed one request against the disposable local HTTP server.
+- **Evidence:** `curl -i http://127.0.0.1:18080/` returned `HTTP/1.0 200 OK` from `SimpleHTTP/0.6 Python/3.12.13`. Listener/PID, FDs, `/proc`, `strace`, and container-log evidence: **not run**.
+- **Commands run:** Learner: `curl -i http://127.0.0.1:18080/`. Agent: `git fetch --prune` (succeeded); `git diff --check` (passed); `graphify ROADMAP_2030_REVISED.md --no-viz` (failed: CLI expects a directory); `graphify . --no-viz` (stopped: installed version requires an external semantic-extraction key for 15 docs).
+- **AI assistance used:** Created a native Markdown map after the optional graph tool could not complete without an external key. The map was checked with `git diff --check`; no semantic graph was produced.
+- **What I can explain unaided:** Not reassessed this session.
+- **Gaps / incorrect assumptions found:** Linux triage remains incomplete; a 200 response alone is insufficient evidence for listener, FD, syscall, or logging diagnosis.
+- **Next action:** Run `docker exec roadmap-linux-triage ss -ltnp` and interpret the listener/PID output before collecting FD evidence.
+- **Git checkpoint:** `baseline_tested` matched `origin/baseline_tested` at `0828d14` before this session's local edits. No commit or push was made.
