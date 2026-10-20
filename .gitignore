@@ -33,6 +33,10 @@ out/
 bin/
 obj/
 
+# Graphify's reviewed outputs may be committed; transient extraction cache is not.
+graphify-out/cache/
+graphify-out/.graphify_*
+
 # ==========================================
 # Operating System Files
 # ==========================================

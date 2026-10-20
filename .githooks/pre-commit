@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root=$(git rev-parse --show-toplevel)
+cd "$repo_root"
+
+GRAPHIFY_SESSION_GRAPH_APPROVED=1 ./scripts/update-roadmap-graph.sh
+
+if [[ -f graphify-out/graph.json && -f graphify-out/GRAPH_REPORT.md ]]; then
+  git add graphify-out/graph.json graphify-out/GRAPH_REPORT.md graphify-out/cost.json
+fi

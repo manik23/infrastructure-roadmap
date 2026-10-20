@@ -10,6 +10,7 @@ A repository kit for executing the 2030 Distributed Systems, Hyperscale Control 
 - `.agents/skills/2030-roadmap-coach/references/` — prerequisite diagnostics, learning workflow and evidence rubric.
 - `prompts/00-START-PREREQUISITE-ASSESSMENT.md` — start prompt for interactive prerequisite assessment.
 - `progress/` — editable baseline, weekly log and skill-gap templates.
+- `revision/` — compact phase revision notes and cheatsheets mapped to the roadmap; not a replacement curriculum.
 
 ## Quick start
 
@@ -52,3 +53,13 @@ git push
 ```
 
 Replace `path/to/changed-files` and the message with the actual work. Do not blindly add all files if unrelated changes or secrets may be present. The agent should not run commit/push unless you explicitly authorize it. Never use reset/clean to resolve a checkpoint mismatch.
+
+## Graph checkpoint hook
+
+This repository tracks a reviewed Graphify graph as a derived artifact. Enable the versioned pre-commit hook once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The hook runs `GRAPHIFY_SESSION_GRAPH_APPROVED=1 ./scripts/update-roadmap-graph.sh` and stages `graphify-out/graph.json`, `GRAPH_REPORT.md`, and `cost.json` only after a successful rebuild. Without a configured supported semantic backend, it records a `SKIPPED` graph refresh and allows the commit; a configured backend that fails still blocks the commit.
