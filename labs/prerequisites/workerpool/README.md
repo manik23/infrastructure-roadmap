@@ -1,7 +1,9 @@
 # Bounded Cancellable Worker Pool Lab
 
 **Roadmap:** [Phase 1, Week 2](../../../ROADMAP_2030_REVISED.md#weekly-sequence)  
-**Status:** Design only — no worker-pool behavior is implemented or tested yet.
+**Status:** Targeted prerequisite complete — Cards 1–5 are implemented,
+reviewed, and verified locally; this remains separate from the Phase 1
+dispatcher.
 
 This prerequisite lab isolates Go cancellation, channel ownership, and shutdown
 semantics. It is not the Phase 1 reliable job dispatcher. The dispatcher starts
@@ -66,7 +68,12 @@ testable while retaining internal result-send cancellation behavior.
 - Result collection uses memory proportional to completed results. Bounded job
   admission prevents unbounded queued work, not unbounded caller input slices.
 
-## Acceptance tests to write before implementation
+## Acceptance tests added during review
+
+The learner implements one bounded increment from the requirements. The agent
+then reviews the code and adds the corresponding deterministic unit tests and
+fixtures, including relevant edge cases. Generated tests must be reviewed
+before the next increment begins.
 
 1. TestRunContinuesAfterJobError: use Workers 1, jobs a, b, and c, and a
    handler that returns errors.New("boom") only for b. Assert that Run returns
@@ -87,8 +94,12 @@ testable while retaining internal result-send cancellation behavior.
 
 ## Verification status
 
-Module/package scaffolding only. On 2026-10-21, go test ./... passed for this
-package with no test files. It cannot verify any requirement until tests and
-behavior are implemented. Race tests are not run.
+The implementation and agent-authored deterministic tests cover ordinary job
+errors, invalid configuration, bounded concurrency, cancellation after start,
+already-canceled contexts, and per-job deadline propagation. On 2026-11-02,
+`go test -race ./labs/prerequisites/workerpool -count=50 -timeout=10s` passed
+in `2.823s`. This repeated dynamic result is not a proof that every
+interleaving is race-free. A handler that ignores its context may still delay
+worker and pool shutdown; Go cannot safely force-stop its goroutine.
 
 See [REVIEW.md](REVIEW.md) for the mandatory learner and reviewer gates.
