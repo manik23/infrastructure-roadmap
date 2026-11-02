@@ -13,6 +13,7 @@ infrastructure as a role-evidence-gated specialization.
 - `prompts/00-START-PREREQUISITE-ASSESSMENT.md` — start prompt for interactive prerequisite assessment.
 - `progress/` — editable baseline, weekly log and skill-gap templates.
 - `revision/` — compact phase revision notes and cheatsheets mapped to the roadmap; not a replacement curriculum.
+- `labs/project-studio/` — test-first companion-exercise scaffolds that extend one progressive control-plane capstone; not independent production clones.
 
 ## Career alignment
 
@@ -32,6 +33,8 @@ docs/decisions/0001-career-alignment.md.
 4. Copy `prompts/00-START-PREREQUISITE-ASSESSMENT.md` into the assistant and follow the interactive assessment one domain at a time.
 5. Update the progress templates with observed evidence. Do not mark a skill as mastered simply because you completed a tutorial.
 6. Start Phase 1 only after the placement decision and required refreshers are clear.
+7. At the mapped phase, open the next project-studio brief, write its first
+   test or design contract, and submit it for review before filling in logic.
 
 ## Important conventions
 

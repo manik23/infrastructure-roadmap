@@ -34,6 +34,19 @@
 ## Next action
 Write and review TestRunContinuesAfterJobError before implementing the first worker-pool increment.
 
+## Project-studio scaffold
+
+- **Date:** 2026-11-02
+- **Work completed:** Added a roadmap-mapped, test-first exercise catalog for
+  process monitoring, dispatcher, rate limiting, cache behavior, mini event
+  log, outbox/CDC, scheduler, gateway policy, log aggregation, and a
+  role-gated storage lab. The Infrastructure Lifecycle Control Plane remains
+  the only progressive capstone.
+- **Evidence status:** Documentation/scaffolding only. No studio exercise has
+  implementation, test, benchmark, or learner demonstration evidence.
+- **Guard:** Do not start a studio item outside its mapped phase. The active
+  prerequisite remains the worker-pool first-test review.
+
 ## Career-alignment update
 
 - **Date:** 2026-11-02

@@ -177,3 +177,28 @@ Append a new entry for each meaningful study session. Prefer one entry per sessi
   verification.
 - **Next action:** Write and review `TestRunContinuesAfterJobError` before
   implementing the first worker-pool increment.
+
+---
+
+## Project-studio scaffolding
+- **Date:** 2026-11-02
+- **Phase / week:** Prerequisite block — roadmap/project design only
+- **Objective:** Retain the requested rate limiter, cache, API gateway, mini
+  event log, scheduler, storage-engine, log aggregation, CDC, and process
+  monitoring projects without fragmenting the control-plane capstone.
+- **Work completed:** Added the project-studio roadmap section, ADR, exercise
+  catalog, review gate, ten mapped briefs, and revision-note/cheatsheet
+  routing. Each brief states learner-owned increments, invariant, evidence,
+  boundary, and resource classification.
+- **Evidence:** Documentation scaffolding only. No implementation, behavior
+  test, race test, benchmark, integration environment, cloud action, or
+  learner demonstration was run for any studio exercise.
+- **Commands run:** `./scripts/check-revision-roadmap-alignment.sh` passed;
+  `git diff --check` passed; `find labs/project-studio -name README.md -print
+  | sort` listed the catalog and ten exercise briefs. `go test`, race tests,
+  benchmarks, and exercise-specific integration checks were **not run**
+  because this checkpoint adds no Go implementation. Graphify was not run
+  directly; the configured pre-commit hook will report its own result.
+- **Next action:** Keep the active worker-pool prerequisite exercise first;
+  begin the process-monitor or dispatcher studio brief only after Phase 1
+  placement is reached.

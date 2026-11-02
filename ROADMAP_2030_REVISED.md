@@ -602,6 +602,40 @@ Do not claim hyperscale production experience based on a local project. Describe
 
 ---
 
+## Project studio — progressive capstone and companion exercises
+
+The **Infrastructure Lifecycle Control Plane** remains the single progressive
+capstone. The exercises below make adjacent concepts tangible without turning
+the plan into a set of unrelated production clones. Each starts with a
+learner-written test, model, or design contract; the learner fills in the
+implementation incrementally and records the exact verification result.
+
+Do not activate a later exercise early merely because its name is familiar.
+Use the mapped phase to establish the prerequisite failure model and testing
+tools first. A miniature system has explicit non-goals; use mature components
+when the learning goal is integration or operation rather than reimplementing
+their internals.
+
+| Studio exercise | Roadmap placement | Learning boundary and relationship to the capstone |
+|---|---|---|
+| Linux process-monitor CLI | Phase 1, Week 1 | Inspect a target PID through an injectable `/proc` root; learn process/FD/resource observation without privileged collection. |
+| Reliable Go dispatcher | Phase 1, Weeks 2–8 | **Capstone Stage A.** Bounded submission, worker execution, idempotency, graceful shutdown, metrics, overload and performance evidence. |
+| Mini partitioned event log (“mini Kafka”) | Phase 2, Week 17 | A single-process append-only partition/offset simulation to learn ordering, replay and consumer ownership; compare its omitted replication/rebalance behavior with Kafka or Redpanda. |
+| Transactional outbox and CDC pipeline | Phase 2, Week 18 | Connect PostgreSQL outbox/CDC to Kafka or Redpanda; demonstrate deduplication, replay and recovery rather than writing a CDC platform. |
+| Shared/distributed rate limiter | Phase 2, Week 19 | Deterministic token-bucket/GCRA semantics first; then a shared atomic-store experiment. Do not claim global correctness across partitions without a stated store/failure model. |
+| Shared/distributed cache | Phase 2, Week 19 | Cache-aside, TTL, invalidation, stampede and hot-key behavior using an existing cache. Do not build a general-purpose Redis clone. |
+| Multi-tenant job scheduler | Phase 3, Weeks 26–32 | **Capstone Stage C.** Implement filters, scores, quotas, priority/fairness and recovery over simulated resources, then connect a Kubernetes controller. |
+| API gateway policy slice | Phase 4, then Phase 5 Week 51 | Apply authentication, deadlines, rate policy, request identity and safe routing with a thin Go gateway or Envoy; later add inference budgets/routing if the AI gate is met. |
+| Log-aggregation and query slice | Phase 4 | Produce structured, tenant-safe logs/traces through OpenTelemetry and a collector/store; test correlation, redaction and backpressure instead of building Elasticsearch. |
+| Storage-engine laboratory | Follow-up 2; concepts introduced in Phase 2 Week 12 | A role-gated WAL, recovery and one-index exercise. It is a learning lab, not the persistence layer of the capstone or a production database. |
+
+The repository scaffolds and review gates live in
+[`labs/project-studio/`](labs/project-studio/README.md). They record the
+problem, invariant, learner-owned logic, evidence target, and non-goals for
+each exercise. Completing a scaffold is not evidence of mastery.
+
+---
+
 # PART II — CONTINUOUS TRACKS (RUN ALONGSIDE THE CORE)
 
 ## A. Data structures and algorithms (DSA)

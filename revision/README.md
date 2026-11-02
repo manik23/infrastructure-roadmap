@@ -7,6 +7,9 @@ This folder is a retrieval aid for active study. [ROADMAP_2030_REVISED.md](../RO
 - [ROADMAP_MAP.md](ROADMAP_MAP.md) maps every revision section to its authoritative roadmap heading.
 - `notes/` holds learner-specific explanations, misconceptions, evidence links, and open questions.
 - `cheatsheets/` holds compact recall prompts, invariants, failure modes, and verification signals.
+- `notes/project-studio.md` and `cheatsheets/project-studio.md` route the
+  companion-exercise series; its implementation briefs live in
+  `labs/project-studio/`.
 
 ## Update contract for agents
 
