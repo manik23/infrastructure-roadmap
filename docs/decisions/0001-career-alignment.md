@@ -5,8 +5,12 @@
 
 ## Context
 
-The curriculum was refined using the supplied roadmap2030-refinement-kit,
-specifically its career-aligned roadmap and audit reviewed on 2026-10-29. The
+The curriculum was refined using the supplied roadmap2030-refinement-kit. Its
+`ROADMAP_2030_REVISED_REFERENCE.md` was compared with this repository's
+`ROADMAP_2030_REVISED.md` immediately before this decision and was identical;
+it is therefore the retained technical-curriculum baseline. The kit's
+career-aligned roadmap and audit, reviewed on 2026-10-29, informed the
+additive career-direction, pacing, and validation changes below. The
 refinement identifies distributed cloud infrastructure and storage/workload
 control planes as the primary career direction, with AI workload and inference
 infrastructure as a complementary, role-evidence-gated specialization.

@@ -6,9 +6,9 @@
 - **Checkpoint status:** IN PROGRESS — targeted prerequisite block underway
 - **Active phase:** Prerequisite block
 - **Active week/task:** Worker-pool prerequisite Exercise 1 — write and review the ordinary-job-error test before implementation; do not begin Phase 1 yet
-- **Last verified checkpoint:** 2026-11-02 resume reconciliation: the Go module and design-only worker-pool lab are local, uncommitted work; no behavior implementation exists
-- **Last verified commit:** 414a1a2 on baseline_tested
-- **Remote sync:** baseline_tested matched origin/baseline_tested on 2026-11-02. Current Go-lab/progress changes are uncommitted and not shared.
+- **Last verified checkpoint:** 2026-11-02 career-aligned roadmap and design-only worker-pool lab checkpoint, committed and pushed; no behavior implementation exists
+- **Last verified commit:** 8eb9ed6 on baseline_tested
+- **Remote sync:** baseline_tested matched origin/baseline_tested after pushing 8eb9ed6 on 2026-11-02.
 
 ## Last completed study checkpoint
 - **Date:** 2026-10-20
@@ -23,7 +23,7 @@
 - **Date:** 2026-11-02
 - **Repository evidence:** The active branch is baseline_tested; git fetch --prune succeeded and HEAD 414a1a2 matched its upstream. The prior state file's reference to f35419b was stale.
 - **Local work preserved:** Modified Go-assessment/revision files plus untracked go.mod and labs/prerequisites/workerpool form the intended next prerequisite exercise. The lab has a design specification and review process; no worker-pool implementation or behavior test exists.
-- **Decision:** Learner confirmed that this local working tree is the authoritative continuation. Do not discard or reset it. It remains LOCAL / NOT YET SHARED until committed and pushed.
+- **Decision:** Learner confirmed that this local working tree was the authoritative continuation. It was captured in commit 8eb9ed6 and pushed to origin/baseline_tested on 2026-11-02.
 
 ## Resume here next session
 1. Inspect Git status, latest commit and upstream sync using the start-of-session protocol in `AGENTS.md`.
@@ -44,10 +44,20 @@ Write and review TestRunContinuesAfterJobError before implementing the first wor
 - **Evidence:** Phase-title/order guard and whitespace check passed after the
   merge. The root Go module check passed for the design-only worker-pool
   package with no test files. No code behavior, benchmark, cloud action, or
-  prerequisite exit test was run by this roadmap update.
+  prerequisite exit test was run by this roadmap update. On 2026-11-02,
+  `ROADMAP_2030_REVISED_REFERENCE.md` in the supplied kit was verified as
+  identical to the repository roadmap immediately before the career-alignment
+  merge; the ADR now records it as the technical-curriculum baseline.
 - **Active effect:** Primary direction is storage/workload control planes;
   AI specialization is conditional on evidence. The active task remains the
   first Go worker-pool test.
+
+## Shared checkpoint
+
+- **Commit:** 8eb9ed6 — docs(roadmap): align career direction and add worker-pool lab
+- **Upstream:** Pushed to origin/baseline_tested on 2026-11-02.
+- **Graph artifact:** Skipped by the pre-commit hook because no supported
+  Graphify semantic backend is configured; no graph artifacts were refreshed.
 
 ## Decision log
 - Keep `ROADMAP_2030_REVISED.md` as the curriculum source of truth.

@@ -144,3 +144,36 @@ Append a new entry for each meaningful study session. Prefer one entry per sessi
   submit its diff and exact test output for the first review gate.
 - **Git checkpoint:** Pending the learner-authorized checkpoint commit and
   push for the roadmap merge and worker-pool scaffold.
+
+---
+
+## Checkpoint finalization
+- **Date:** 2026-11-02
+- **Work completed:** Committed the reviewed career-aligned roadmap merge,
+  progress records, revision material, root Go module, and design-only
+  worker-pool lab as 8eb9ed6.
+- **Verification:** Pre-commit phase-alignment check passed. Graphify refresh
+  skipped because no supported semantic backend is configured. The commit was
+  pushed to origin/baseline_tested.
+- **Tests / benchmarks:** No new behavior tests, race tests, or benchmarks
+  were run during finalization.
+- **Next action:** Write and review TestRunContinuesAfterJobError before
+  implementing the first worker-pool increment.
+
+---
+
+## Roadmap-source verification
+- **Date:** 2026-11-02
+- **Objective:** Confirm whether the supplied
+  `ROADMAP_2030_REVISED_REFERENCE.md` was incorporated into the reviewed
+  career-alignment checkpoint.
+- **Work completed:** Compared the supplied reference with the repository
+  roadmap immediately before commit `8eb9ed6`; they were identical. Recorded
+  that reference as the retained technical-curriculum baseline in ADR 0001.
+- **Evidence:** `diff -u` produced no output. The subsequent roadmap change
+  adds career direction, sustainable cadence, validation loop, project
+  storyline, and AI-entry gate while retaining Phase 1–7 headings/order.
+- **Tests / benchmarks:** Not run; this was documentation-provenance
+  verification.
+- **Next action:** Write and review `TestRunContinuesAfterJobError` before
+  implementing the first worker-pool increment.
