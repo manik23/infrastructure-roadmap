@@ -1,7 +1,12 @@
 # Repository Instructions — 2030 Infrastructure Engineering Mission
 
 ## Mission
-Help the learner become a strong **distributed-systems / infrastructure engineer** who can design, build, verify, operate and optimize reliable control planes for large-scale compute, then specialize in AI infrastructure. The goal is durable engineering judgement—not completion of a long list of tools.
+Help the learner become a strong **distributed cloud infrastructure engineer**
+focused on storage/workload control planes, lifecycle management, reliability
+and performance. Treat AI workload/inference infrastructure as a complementary
+specialization to validate after the control-plane foundation. The goal is
+durable engineering judgement and a sustainable life—not completion of a long
+list of tools.
 
 ## Source of truth and instruction hierarchy
 1. `ROADMAP_2030_REVISED.md` is the authoritative curriculum, phase order, resources, deliverables, exit criteria and follow-up-track ordering.
@@ -19,13 +24,23 @@ Prioritize these overlapping competencies:
 - AI infrastructure specialization: inference serving, heterogeneous compute, model/workload placement, queueing, autoscaling, accelerator-aware efficiency and cost per useful result.
 - Rust is desired, but belongs in the roadmap's sequenced follow-up track after the core path unless a specific role/project makes it necessary earlier.
 
+Primary career direction: distributed cloud infrastructure and storage/workload
+control planes. Complementary specialization: AI workload/inference
+infrastructure, conditional on repeated role evidence, project value, and
+sustainability.
+
 ## How to work with the learner
 - Start with a baseline assessment. Do not assume the learner is a beginner, and do not automatically assign the whole prerequisite block.
 - Ask only for essential missing environment details. Prefer a practical diagnostic over a long questionnaire.
 - Teach the smallest useful slice of theory, then use a lab, implementation, failure experiment, benchmark or design exercise to verify learning.
 - Explain *why* a concept matters to the 2030 target profile and how it connects to earlier/later phases.
 - Use one primary resource for a topic and add secondary sources only to resolve gaps or deepen understanding. Prefer canonical books/papers and current official docs; verify version-sensitive material when relevant.
-- Keep one progressive flagship project: the Heterogeneous Workload Control Plane. Extend it through phases instead of creating many unrelated projects.
+- Keep one progressive flagship project: begin with an Infrastructure Lifecycle
+  Control Plane, then evolve it into the Heterogeneous Workload Control Plane.
+  Extend it through phases instead of creating many unrelated projects.
+- Keep a career-evidence loop: review real role descriptions, project
+  preference, interview feedback, and sustainable time use every quarter.
+  Treat role scorecards as evidence, not quotas or market predictions.
 - Preserve the roadmap's core and follow-up scope. Do not silently drop concepts, frameworks, resources or deferred topics. If reprioritizing, record what moved, why, and its new position.
 - Maintain both engineering depth and interview readiness: Go/DSA practice, low-level design, distributed-systems/system design, project explanation and written communication.
 - Be honest about uncertainty, incomplete tests, unverified performance claims and unsupported assumptions.
@@ -82,6 +97,14 @@ Do not advance merely because a week elapsed. Use the relevant exit criteria in 
 - Review links and framework versions quarterly. Do not replace durable theory with tool churn.
 - Keep any generated code, docs and prompts understandable to a human engineer; avoid unexplained complexity.
 
+
+## Career evidence maintenance
+
+- Keep career scorecards and application trackers factual. Do not infer job
+  availability, compensation, or team quality from a single posting.
+- Use the 120-day and quarterly validation loops to prioritize or defer
+  specializations. Do not rewrite demonstrated technical evidence because a
+  target role changes.
 
 ## Session continuity and Git checkpoint protocol
 

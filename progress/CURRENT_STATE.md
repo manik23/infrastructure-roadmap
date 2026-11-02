@@ -5,12 +5,12 @@
 ## Status
 - **Checkpoint status:** IN PROGRESS — targeted prerequisite block underway
 - **Active phase:** Prerequisite block
-- **Active week/task:** Define bounded Go worker-pool cancellation, closure, and result-ownership semantics; do not begin Phase 1 yet
-- **Last verified checkpoint:** 2026-10-20 prerequisite evidence captured for Linux triage, happy-path HTTPS, and page-cache/reclaim reasoning; records are local and uncommitted
-- **Last verified commit:** `f35419b` on `baseline_tested` (previously documented as matching `origin/baseline_tested`)
-- **Remote sync:** Not re-verified this session. The current local records are not committed or pushed.
+- **Active week/task:** Worker-pool prerequisite Exercise 1 — write and review the ordinary-job-error test before implementation; do not begin Phase 1 yet
+- **Last verified checkpoint:** 2026-11-02 resume reconciliation: the Go module and design-only worker-pool lab are local, uncommitted work; no behavior implementation exists
+- **Last verified commit:** 414a1a2 on baseline_tested
+- **Remote sync:** baseline_tested matched origin/baseline_tested on 2026-11-02. Current Go-lab/progress changes are uncommitted and not shared.
 
-## Last session summary
+## Last completed study checkpoint
 - **Date:** 2026-10-20
 - **Objective:** Complete focused Linux, networking, and OS-memory prerequisite evidence; keep revision material mapped to the authoritative roadmap.
 - **Completed work:** Completed a disposable-container Linux HTTP-service triage: listener/PID, FD ownership, FD table, logs, request syscalls, idle readiness waits, and Docker port mapping. Captured and interpreted a bounded HTTPS `curl -v` request through DNS, TCP, TLS, HTTP/2, and `200`. Completed page-cache/RSS/reclaim reasoning plus a bounded 64 MiB Docker file-read observation and cleanup. Added revision-note/cheatsheet material and an automated Phase 1–7 title/order alignment check for the roadmap map and core-phase notes.
@@ -18,14 +18,36 @@
 - **Tests/commands actually run:** See the 2026-10-20 session entry in `progress/weekly-log.md` for the exact learner commands and outcomes. Agent verification: `./scripts/check-revision-roadmap-alignment.sh` passed; `git diff --check` passed. Go tests/race tests: **not run**. Benchmarks: **not run**. Graphify refresh: **skipped/not run** because no semantic backend was explicitly approved and available; no graph artifacts were changed or staged.
 - **Open gaps/blockers:** Targeted prerequisite block remains required before Phase 1. Linux result interpretation needs one later fresh scenario; OS kernel OOM log evidence needs a dedicated Linux VM; Go worker-pool runtime evidence, Kubernetes finalizer semantics, cloud IAM/cost, Git bisection, and container CI smoke testing remain open. The revision-alignment check only guards Phase 1–7 title/order and map coverage; the roadmap remains the authority for all curriculum scope.
 
+## Resume reconciliation
+
+- **Date:** 2026-11-02
+- **Repository evidence:** The active branch is baseline_tested; git fetch --prune succeeded and HEAD 414a1a2 matched its upstream. The prior state file's reference to f35419b was stale.
+- **Local work preserved:** Modified Go-assessment/revision files plus untracked go.mod and labs/prerequisites/workerpool form the intended next prerequisite exercise. The lab has a design specification and review process; no worker-pool implementation or behavior test exists.
+- **Decision:** Learner confirmed that this local working tree is the authoritative continuation. Do not discard or reset it. It remains LOCAL / NOT YET SHARED until committed and pushed.
+
 ## Resume here next session
 1. Inspect Git status, latest commit and upstream sync using the start-of-session protocol in `AGENTS.md`.
-2. Continue with the Go concurrency prerequisite: define bounded worker-pool shutdown/error semantics, then implement the targeted lab with tests and `go test -race`.
-3. Reassess only the worker-pool exit test, then continue the focused prerequisite plan.
+2. Complete Exercise 1: write TestRunContinuesAfterJobError in the worker-pool lab, review its property, then implement only enough behavior to pass it.
+3. Continue the later cancellation/deadline/race increments only after that review.
 4. Update progress records only from observed evidence.
 
 ## Next action
-Define bounded worker-pool cancellation, channel-closure, and result-ownership semantics before implementation.
+Write and review TestRunContinuesAfterJobError before implementing the first worker-pool increment.
+
+## Career-alignment update
+
+- **Date:** 2026-11-02
+- **Work completed:** Merged the supplied career-alignment refinement into the
+  authoritative roadmap without replacing the existing phase sequence or
+  prerequisite evidence. Added a career scorecard, application tracker,
+  validation prompt, ADR, and mapped revision notes.
+- **Evidence:** Phase-title/order guard and whitespace check passed after the
+  merge. The root Go module check passed for the design-only worker-pool
+  package with no test files. No code behavior, benchmark, cloud action, or
+  prerequisite exit test was run by this roadmap update.
+- **Active effect:** Primary direction is storage/workload control planes;
+  AI specialization is conditional on evidence. The active task remains the
+  first Go worker-pool test.
 
 ## Decision log
 - Keep `ROADMAP_2030_REVISED.md` as the curriculum source of truth.

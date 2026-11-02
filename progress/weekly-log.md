@@ -88,3 +88,59 @@ Append a new entry for each meaningful study session. Prefer one entry per sessi
 - **Gaps / incorrect assumptions found:** `ppoll` was initially described as a watchdog and later an idle listener as blocked; `ping` was initially proposed as TCP/HTTP verification. HTTPS initially skipped TCP between DNS and TLS. Page cache was initially conflated with page tables, and dirty writeback was initially described as possibly going to virtual memory. Corrections are captured in the revision notes.
 - **Next action:** Define bounded Go worker-pool cancellation, input-closure, result/error ownership, and worker-completion semantics; then implement the targeted lab and run `go test -race`.
 - **Git checkpoint:** Branch `baseline_tested`; latest local commit before this checkpoint is `f35419b`. Working tree contains local, uncommitted roadmap/progress/revision changes and one new alignment-check script. No commit or push was performed. **LOCAL / NOT YET SHARED.**
+
+---
+
+## Session checkpoint
+- **Date:** 2026-11-02
+- **Phase / week:** Targeted prerequisite block — career-alignment roadmap merge
+- **Objective:** Merge the supplied career-aligned refinement while preserving
+  the authoritative roadmap's technical phase order and learner evidence.
+- **Resource and section:** Supplied roadmap2030-refinement-kit career-aligned
+  roadmap and audit, reviewed 2026-10-29; current roadmap; ADR 0001.
+- **Work completed:** Added career-alignment constraints, sustainable weekly
+  cadence, early role-validation loop, progressive lifecycle-control-plane
+  narrative, and AI entry gate to the current roadmap. Added career templates,
+  validation prompt, decision record, and mapped revision notes/cheatsheet.
+- **Evidence:** Revision phase-title/order alignment check passed. This was a
+  planning/documentation merge only: Go implementation, behavior tests, race
+  tests, benchmarks, cloud/GPU work, and job-market revalidation were not run.
+- **Commands run:** Agent inspected the supplied kit with rg and sed, compared
+  its headings with the current roadmap, ran the phase-alignment check, and
+  ran the whitespace check. Graphify query was unavailable because its graph
+  artifact is absent.
+- **AI assistance used:** Proposed a documented merge map and preserved the
+  existing roadmap filename, phase headings, learner progress, and active
+  worker-pool exercise. Imported market examples are marked as dated source
+  material, not fresh claims.
+- **Open gaps:** Current prerequisites remain unchanged. The worker-pool lab
+  still has no behavior implementation or acceptance test. Career direction
+  needs future role-scorecard evidence; no job-posting data was independently
+  refreshed.
+- **Next action:** Write and review TestRunContinuesAfterJobError for the
+  bounded worker-pool lab.
+- **Git checkpoint:** Current work is local and uncommitted. Commit/push status
+  remains unverified for this merge until the learner reviews and commits it.
+
+---
+
+## Session checkpoint
+- **Date:** 2026-11-02
+- **Phase / week:** Targeted prerequisite block — Go worker-pool scaffold review
+- **Objective:** Verify the career-aligned roadmap merge and locate the next
+  evidence-producing Go prerequisite exercise.
+- **Work completed:** Verified that Phase 1 through Phase 7 headings/order
+  remain intact. Reviewed the design-only worker-pool lab and its test-first
+  review process. No worker-pool behavior was implemented.
+- **Evidence:** go test ./... passed for
+  github.com/manik23/infrastructure-roadmap/labs/prerequisites/workerpool with
+  no test files. This proves module/package wiring only; it does not prove
+  worker-pool behavior, cancellation, deadlines, or race safety.
+- **Commands run:** scripts/check-revision-roadmap-alignment.sh; git diff
+  --check; go test ./....
+- **Tests / benchmarks:** Behavior tests, go test -race, repeated tests, and
+  benchmarks were not run.
+- **Next action:** Write TestRunContinuesAfterJobError in pool_test.go, then
+  submit its diff and exact test output for the first review gate.
+- **Git checkpoint:** Pending the learner-authorized checkpoint commit and
+  push for the roadmap merge and worker-pool scaffold.

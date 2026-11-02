@@ -198,6 +198,41 @@ accept4(3<socket:[10373]>, ...) = 4<socket:[8757]> <0.000324>
 
 **OOM-check outcome (2026-10-20):** `docker exec roadmap-linux-triage sh -c 'dmesg | tail -n 50'` printed no kernel lines and `echo $?` returned `0`. Docker Debug then reported `dmesg: read kernel buffer failed: Operation not permitted`. Taken together, these commands do not supply reliable kernel OOM evidence; mark that subtopic `Not assessed` in Docker Desktop rather than inferring no OOM occurred. Do not add `--privileged` solely for this assessment. Revisit `journalctl -k` or permitted `dmesg` in a dedicated Linux VM after a naturally occurring event.
 
+## Go concurrency assessment — bounded worker-pool ownership
+
+**Problem:** A caller cancels a bounded job-dispatch operation while workers may be receiving jobs, running work, or trying to report results. The design must not leak goroutines or deadlock if the caller stops reading results.
+
+**Core model:** Channel closure has one owner: the sender side that knows no more values will be produced. A worker receiving from a job channel must also select on `ctx.Done()`; a worker sending a result must be able to stop that send on cancellation. A coordinating goroutine waits for all workers before it closes the results channel. Cancellation does not retroactively undo a job that has already been handed to a handler; the API must report whether that handler observed the context and how unfinished queued work is classified.
+
+**Why it matters:** Controller and scheduler workers routinely stop during leader changes, shutdown, retry cancellation, and deadline expiry. Ownership and cancellation rules define whether the system exits cleanly or accumulates blocked goroutines under load.
+
+**Planned review exercise:** Inspect a deliberately incomplete Go worker-pool sketch in the study session. Identify which producer, workers, or coordinator can remain blocked if the caller cancels and stops consuming results. No external reading is required before this first review attempt; before implementation, read the Go `context` package overview plus `WithCancel` and `WithTimeout` documentation. Expected later evidence is a runnable bounded implementation and `go test -race` result; neither has been run yet.
+
+**Assessment evidence (2026-10-20):** The learner correctly saw that the sketch did not select cancellation before invoking `handle`, but initially concluded that all jobs would run. In fact, if the caller cancels and stops receiving, a worker can block at `results <-`; blocked workers stop receiving jobs, the bounded producer can block at `jobs <-`, the job channel is never closed, and `wg.Wait()` cannot finish. This is a liveness failure. The next review must cover cancellation at both receive and result-send boundaries.
+
+**Channel ownership evidence (2026-10-20):** The learner correctly assigned `close(jobs)` to the routine that sends jobs and `close(results)` after all workers finish. The latter must be a coordinator after `wg.Wait()`, not a worker: a different worker may still send and would panic if the shared results channel were closed early.
+
+**Cancellation-policy decision (2026-10-21):** Choose Option A for the first implementation: cancellation stops admission and abandons queued, unstarted jobs to avoid unnecessary compute. The producer selects on `ctx.Done()` while sending, then closes `jobs`. Each dequeued handler receives the same context; it can stop early only if it cooperates. Because workers also select on cancellation while sending results, cancellation may prevent delivery of an in-flight outcome. The API must return `ctx.Err()` and document that absent results are incomplete/abandoned, not successful. This is an at-least-once-attempt boundary, not a guarantee that every submitted job has an outcome record.
+
+**Required reading before implementation:** [Go `context` package](https://pkg.go.dev/context), bounded to its overview and the `WithCancel` and `WithTimeout` function documentation. Purpose: distinguish cancellation propagation from a forceful stop, and make the worker-pool deadline boundary explicit.
+
+**Context review evidence (2026-10-21):** The learner correctly stated that `cancel()` closes `Done` and makes `Err()` report cancellation; it does not stop a goroutine. The per-job timeout context belongs in the worker immediately before `handle(jobCtx, job)`, derived from the pool context with `context.WithTimeout`. The worker calls the returned `jobCancel()` immediately after `handle` returns—do not `defer` it across a long-lived worker loop—so its timer/resources are released even on a normal completion. A handler must observe the context and choose to return `ctx.Err()`; cancellation itself does not fabricate a `Result` or error return.
+
+**Job-error policy decision (2026-10-21):** An ordinary error returned by `handle` is emitted in that job's result and does not cancel the pool. This keeps independent job failure isolated; only parent cancellation/deadline ends the pool. The implementation must distinguish this per-job error from `ctx.Err()`, which means the overall operation was canceled and queued jobs may have been abandoned.
+
+**Lab scaffold (2026-10-21):** Created [labs/prerequisites/workerpool](../../labs/prerequisites/workerpool) in the root Go module as a bounded prerequisite lab, with requirements, assumptions, failure model, and acceptance tests in its README. It is explicitly not the Phase 1 dispatcher; no worker-pool implementation or behavior test exists yet.
+
+**Scaffold verification (2026-10-21):** The initial go test ./... check passed
+for the root module's one package with no test files. It verifies module/package
+wiring only; worker-pool behavior and race tests are not run.
+
+**Specific exercise and review gate (2026-10-21):** The worker-pool README now
+defines the target API and deterministic acceptance tests, beginning with one
+ordinary job error followed by successful later work. REVIEW.md defines
+test-first increments, channel/context review checks, exact verification
+commands, and separate safety/liveness review. No behavior implementation or
+acceptance test has been added yet.
+
 ## Learner notes
 
 Add only concise, unaided explanations here. Link the relevant `progress/` evidence; do not copy the full roadmap or mark an exit test complete without proof.

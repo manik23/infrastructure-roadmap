@@ -1,8 +1,8 @@
 # 2030 Hyperscale Infrastructure & AI Platform Engineering Roadmap
 
-**Revised:** 19 October 2026  
-**Mission:** Become a strong distributed-systems / platform engineer who can design, build, operate and optimize control planes for large-scale compute—and then specialize in AI infrastructure.  
-**Core duration:** 60 weeks, approximately 14–15 hours/week.  
+**Revised:** 2 November 2026
+**Mission:** Become a strong distributed cloud infrastructure engineer who can design, build, operate and optimize storage/workload control planes, lifecycle systems, reliability and performance—and validate AI infrastructure as a complementary specialization.
+**Core duration:** 60 weeks at a sustainable pace; calendar duration stretches rather than displacing health, family, or financial safety.
 **Follow-up tracks:** Rust systems programming plus targeted specializations, taken in dependency order after the core rather than mixed into every phase.
 
 > **North star:** Build systems that turn unreliable, heterogeneous, expensive resources into reliable services. Learn the theory behind correctness and performance; use frameworks to apply it; prove the result with tests, experiments and operational evidence.
@@ -18,6 +18,7 @@ This is a career-development plan, not a prediction that any specific framework 
 Prioritize roles whose work includes several of the following:
 
 - Distributed Systems Engineer / Control Plane Engineer
+- Storage Infrastructure / Infrastructure Lifecycle Engineer
 - Compute Platform / Cluster Management Engineer
 - Kubernetes Infrastructure / Scheduling Engineer
 - AI Infrastructure / Inference Platform Engineer
@@ -26,7 +27,9 @@ Prioritize roles whose work includes several of the following:
 
 ### Core specialization
 
-**Distributed control planes and workload orchestration**, with **AI compute and inference infrastructure** as the growth specialization.
+**Distributed cloud infrastructure and storage/workload control planes**, with
+**AI compute and inference infrastructure** as a complementary specialization
+to validate through role evidence and a bounded project extension.
 
 ### The stack you should understand
 
@@ -46,21 +49,40 @@ You do **not** need to become a chip designer, ML researcher, deep-learning scie
 - **Follow-up:** Important specialties that are deliberately sequenced after the core. They are not forgotten or silently removed.
 - **Role-dependent:** Learn when a target role or team needs them; do not study every tool just because it exists.
 
+### Career-alignment constraints
+
+- Primary direction: distributed cloud infrastructure and storage/workload
+  control planes, lifecycle management, reliability, and performance.
+- Complementary direction: AI workload/inference infrastructure only after the
+  control-plane foundation is useful and target roles justify the investment.
+- Storage/database internals remain a differentiator and follow-up option;
+  avoid building a custom database unless a concrete role or project needs it.
+- Envoy/data-plane performance remains an optional bridge. Do not specialize in
+  routing or fabric architecture solely because it appears in prior experience.
+- Rust remains a sequenced follow-up after the initial role-validation cycle,
+  unless a concrete target role requires it sooner.
+
 ---
 
 ## 2. Weekly operating model
 
 ### Sustainable time budget
 
-Target **14–15 hours/week** while employed:
+Target **6 hours/week** while employed, with an **8-hour ceiling** except for a
+short, pre-planned interview sprint:
 
 | Slot | Time | Purpose |
 |---|---:|---|
-| Mon–Thu | 1.5–2 hours/day | Reading, focused labs, coding or DSA |
-| Friday | 1–2 hours | Review, notes, paper summary, design exercise |
-| Weekend | 4–5 hours | Project integration, tests, benchmark or failure drill |
+| Weekday session A | 75 minutes | Theory/resource work and notes |
+| Weekday session B | 75 minutes | Focused coding or debugging |
+| Weekday session C | 60 minutes | DSA or interview review |
+| Weekend deep-work block | 2 hours | Project integration, test, benchmark, or failure drill |
+| Weekend review | 30 minutes | Progress ledger and next action |
 
-If only 8–10 hours are available in a busy week, keep the project and interview tracks alive and stretch the calendar. Do not skip tests to meet a date.
+In a busy week, use a 3–4-hour floor: one theory session, one project task,
+one interview session, and a checkpoint. Stretch the calendar rather than
+borrowing sleep, family time, or business-validation time. Do not skip tests
+to meet a date.
 
 ### Rules that keep the roadmap effective
 
@@ -72,6 +94,10 @@ If only 8–10 hours are available in a busy week, keep the project and intervie
 6. **Use AI coding tools as assistants, not authorities.** You own requirements, threat models, test design, review and correctness claims.
 7. **Review the plan quarterly.** Keep fundamentals stable; update framework choices based on current docs and target job descriptions.
 8. **Do not turn every topic into a custom implementation.** Read production designs and build a small model or lab when that is enough to understand the concept.
+9. **Validate direction early.** Start targeted role research, a truthful
+   resume narrative, and selective applications or internal conversations in
+   the first 30–45 days; use evidence rather than framework fashion to adjust
+   the plan.
 
 ---
 
@@ -161,6 +187,10 @@ If any item is weak, use the corresponding prerequisite resource below and spend
 | 8 | **Buffer and capstone review** | A reliable Go job-dispatch service, design note, reproducible benchmark and failure tests |
 
 ### Phase 1 project: reliable job dispatcher
+
+This is Stage A of the progressive **Infrastructure Lifecycle Control Plane**.
+It later gains durable lifecycle semantics and evolves into the Heterogeneous
+Workload Control Plane; it is not a separate disposable capstone.
 
 Build a Go service that accepts jobs, enqueues work in a **bounded** queue, dispatches to workers and exposes status. Add request IDs/idempotency, deadlines, graceful termination, health endpoints, metrics and load tests. At this stage, persistence can be basic; durable distributed workflow behavior comes later.
 
@@ -313,6 +343,11 @@ Extend the job dispatcher into an asynchronous job-control service with persiste
 
 ### Phase 3 project: Workload Control Plane (flagship project begins)
 
+This is the control-plane extension of the Infrastructure Lifecycle Control
+Plane from Phases 1–2. Retain the earlier dispatcher and lifecycle evidence;
+add Kubernetes reconciliation, quotas, and simulated heterogeneous resources
+instead of starting an unrelated project.
+
 Create one progressive project called **Heterogeneous Workload Control Plane**. The first version does not require real GPUs.
 
 Core functions:
@@ -414,6 +449,12 @@ Deploy the Workload Control Plane into a Kubernetes test cluster using IaC and G
 
 **Weeks 43–52**  
 **Outcome:** You understand how model-serving demands shape compute platforms and can demonstrate a cost/latency trade-off with a real inference workload.
+
+**Career gate:** Enter this phase when role descriptions, practitioner
+conversations, project preference, or current work support AI infrastructure.
+Otherwise retain its material as a deliberate follow-up and use this calendar
+window for a role-driven storage/control-plane depth project. Record the
+decision and evidence; do not force GPU work to satisfy a schedule.
 
 ### AI and accelerator fundamentals
 
@@ -565,13 +606,15 @@ Do not claim hyperscale production experience based on a local project. Describe
 
 ## A. Data structures and algorithms (DSA)
 
-**Target:** 2–3 hours/week, usually two weekday sessions. Use Go to reduce language switching.
+**Target:** 60–90 minutes/week. Use Go to reduce language switching.
 
 Cover arrays/hash maps, strings, two pointers, sliding window, stacks/queues, linked lists, binary search, trees/BSTs, heaps, graphs/BFS/DFS/topological sort, union-find, intervals, tries, recursion/backtracking, greedy, dynamic programming, bit manipulation and complexity analysis.
 
 - Main path: [NeetCode roadmap / NeetCode 150](https://neetcode.io/roadmap)
 - Reference: [Tech Interview Handbook](https://www.techinterviewhandbook.org/)
-- Target: 80–120 curated problems by approximately week 29 and 150–180 reviewed by week 60, adjusted to target-company expectations.
+- Target: 2–3 well-selected problems per week with spaced re-solving. Track
+  missed patterns and communication quality; do not optimize for an arbitrary
+  total problem count.
 - Process: if stuck for 20–25 minutes, inspect a hint/solution, then re-solve next day, after one week and after one month. Track the missed pattern, not just the final answer.
 
 ## B. Low-level design and code design
@@ -812,6 +855,31 @@ Use this as a completeness audit. A checkmark means the topic is covered in the 
 ---
 
 # PART V — CAREER EXECUTION AND MEASUREMENT
+
+## Career validation and sustainable execution
+
+Use the first 120 days as a career experiment, not a race to finish the
+syllabus:
+
+1. **Days 1–14:** collect 10–15 relevant role descriptions, record repeated
+   requirements in career/ROLE_SCORECARD.csv, and identify the five largest
+   evidence-backed gaps.
+2. **Days 15–30:** prepare two truthful resume variants, begin selective
+   applications or internal conversations, and complete short DSA,
+   concurrency/debugging, and system-design diagnostics.
+3. **Days 31–60:** build the lifecycle-service MVP with bounded queues,
+   idempotency, durable state, metrics, and failure tests.
+4. **Days 61–90:** add one controller, local-cluster failure behavior,
+   simplified quotas, and simulated scheduling.
+5. **Days 91–120:** add one load/profile/failure report, practise interviews,
+   and decide from evidence whether to deepen lifecycle/control-plane work,
+   storage, or AI resource scheduling.
+
+Use career/application-tracker.csv for applications and feedback. The counts
+are planning guides, not quotas. Do not resign without a signed offer and a
+reviewed financial runway. Revisit direction at day 120 and quarterly
+thereafter; change it only with repeated role, project, interview, or work
+evidence.
 
 ## Portfolio checklist
 
