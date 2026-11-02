@@ -4,7 +4,7 @@ Update status only when evidence supports it. Suggested statuses: `NOT STARTED`,
 
 | Phase | Status | Evidence / checkpoint | Remaining gaps | Next action |
 |---|---|---|---|---|
-| Prerequisite assessment | IN PROGRESS | Initial diagnostics completed 2026-10-19; 2026-10-20 added Linux triage (**Practiced**), HTTPS path (**Demonstrated** for baseline scope), and OS-memory/reclaim (**Practiced**) evidence in `progress/BASELINE_ASSESSMENT.md` | Focused prerequisite exit tests remain: Linux interpretation refresh, OS OOM logs on a Linux VM, Go worker pool, Kubernetes cleanup, cloud IAM/cost, Git bisection, and container CI | Define then implement the bounded Go worker-pool lab with cancellation, shutdown, result/error semantics, and race-clean tests |
+| Prerequisite assessment | IN PROGRESS | Initial diagnostics completed 2026-10-19; 2026-10-20 added Linux triage (**Practiced**), HTTPS path (**Demonstrated** for baseline scope), and OS-memory/reclaim (**Practiced**) evidence in progress/BASELINE_ASSESSMENT.md. On 2026-11-02, the Go worker-pool specification/review scaffold was confirmed as local work; no behavior is implemented. | Focused prerequisite exit tests remain: Linux interpretation refresh, OS OOM logs on a Linux VM, Go worker pool, Kubernetes cleanup, cloud IAM/cost, Git bisection, and container CI | Write and review the first ordinary-job-error worker-pool test, then implement only the first increment |
 | Phase 1 — Systems foundations | NOT STARTED | — | — | Placement decision after assessment |
 | Phase 2 — Distributed systems | NOT STARTED | — | — | Follow roadmap sequence |
 | Phase 3 — Control planes and scheduling | NOT STARTED | — | — | Follow roadmap sequence |
@@ -17,6 +17,12 @@ Update status only when evidence supports it. Suggested statuses: `NOT STARTED`,
 | Follow-up — advanced AI systems | DEFERRED (PLANNED) | Sequence retained in roadmap | — | After AI infrastructure fundamentals |
 | Follow-up — formal methods / advanced distributed systems | DEFERRED (PLANNED) | Sequence retained in roadmap | — | Deepen when project demands it |
 | Follow-up — security / economics / agentic ops | DEFERRED (PLANNED) | Sequence retained in roadmap | — | Follow after platform foundations |
+
+## Career-alignment note
+
+On 2026-11-02, the roadmap was refined toward storage/workload control planes
+with AI specialization gated by role evidence. This changes prioritization and
+cadence, not current phase status or demonstrated skill evidence.
 
 ## Phase pass rule
 Mark `PASSED` only when the corresponding roadmap exit criteria are linked to concrete evidence (test results, benchmarks, lab completion, design explanation, or demonstration). Include artifact paths and commit references when available.

@@ -1,6 +1,8 @@
 # 2030 Infrastructure Roadmap Kit
 
-A repository kit for executing the 2030 Distributed Systems, Hyperscale Control Plane and AI Infrastructure roadmap with an AI coding assistant.
+A repository kit for a career-aligned 2030 roadmap: distributed cloud
+infrastructure and storage/workload control planes first, with AI
+infrastructure as a role-evidence-gated specialization.
 
 ## Contents
 
@@ -11,6 +13,17 @@ A repository kit for executing the 2030 Distributed Systems, Hyperscale Control 
 - `prompts/00-START-PREREQUISITE-ASSESSMENT.md` — start prompt for interactive prerequisite assessment.
 - `progress/` — editable baseline, weekly log and skill-gap templates.
 - `revision/` — compact phase revision notes and cheatsheets mapped to the roadmap; not a replacement curriculum.
+- `labs/project-studio/` — test-first companion-exercise scaffolds that extend one progressive control-plane capstone; not independent production clones.
+
+## Career alignment
+
+ROADMAP_2030_REVISED.md is the single authoritative curriculum. Its November
+2026 refinement makes storage/workload control planes the primary direction and
+keeps AI infrastructure conditional on role evidence. Use career/ROLE_SCORECARD.csv
+and career/application-tracker.csv to record evidence, then run
+prompts/03-CAREER-VALIDATION.md at the 120-day and quarterly checkpoints.
+The merge rationale and dated-source limitations are in
+docs/decisions/0001-career-alignment.md.
 
 ## Quick start
 
@@ -20,6 +33,8 @@ A repository kit for executing the 2030 Distributed Systems, Hyperscale Control 
 4. Copy `prompts/00-START-PREREQUISITE-ASSESSMENT.md` into the assistant and follow the interactive assessment one domain at a time.
 5. Update the progress templates with observed evidence. Do not mark a skill as mastered simply because you completed a tutorial.
 6. Start Phase 1 only after the placement decision and required refreshers are clear.
+7. At the mapped phase, open the next project-studio brief, write its first
+   test or design contract, and submit it for review before filling in logic.
 
 ## Important conventions
 

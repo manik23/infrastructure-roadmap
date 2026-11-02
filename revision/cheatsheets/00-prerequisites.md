@@ -41,6 +41,18 @@
 
 Safe bounded trace: `curl -v --connect-timeout 5 --max-time 15 https://example.com/ -o /dev/null`.
 
+## Go cancellable worker pool
+
+- The producer owns `close(jobs)`; a coordinator owns `close(results)` only after every worker exits.
+- Every blocking job receive, job send, and result send needs a `ctx.Done()` alternative.
+- First-policy choice: on cancellation, stop admission and abandon queued jobs. Pass the context to already-started work; cancellation is cooperative, not a forceful goroutine stop.
+- Ordinary job errors are results and do not cancel independent jobs; parent context cancellation/deadline ends the pool.
+- Return/report `ctx.Err()`; do not present absent results as successful work.
+
+- Review incrementally: configuration/errors, bounded concurrency, cancellation,
+  per-job deadline, then race/repetition. Use channels and contexts in tests,
+  not arbitrary sleeps.
+
 ## Memory and safety
 
 - Page cache is reclaimable cached file data in RAM; it is not a page table.
