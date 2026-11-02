@@ -5,10 +5,15 @@
 ## Status
 - **Checkpoint status:** IN PROGRESS — targeted prerequisite block underway
 - **Active phase:** Prerequisite block
-- **Active week/task:** Worker-pool prerequisite Exercise 1 — write and review the ordinary-job-error test before implementation; do not begin Phase 1 yet
-- **Last verified checkpoint:** 2026-11-02 career-aligned roadmap and design-only worker-pool lab checkpoint, committed and pushed; no behavior implementation exists
-- **Last verified commit:** 8eb9ed6 on baseline_tested
-- **Remote sync:** baseline_tested matched origin/baseline_tested after pushing 8eb9ed6 on 2026-11-02.
+- **Active week/task:** Go worker-pool targeted prerequisite complete; select
+  the next open prerequisite domain. Do not begin Phase 1 yet.
+- **Last verified checkpoint:** 2026-11-02 local Go worker-pool prerequisite
+  completion: Cards 1–5 were demonstrated; repeated `go test -race` evidence
+  passed and the context-ignoring-handler limitation was explained.
+- **Last shared commit:** dbaf47e on baseline_tested; Card 1 code, tests, and
+  current guidance changes are local and uncommitted.
+- **Remote sync:** baseline_tested matched origin/baseline_tested at dbaf47e
+  before the current local work.
 
 ## Last completed study checkpoint
 - **Date:** 2026-10-20
@@ -27,12 +32,34 @@
 
 ## Resume here next session
 1. Inspect Git status, latest commit and upstream sync using the start-of-session protocol in `AGENTS.md`.
-2. Complete Exercise 1: write TestRunContinuesAfterJobError in the worker-pool lab, review its property, then implement only enough behavior to pass it.
-3. Continue the later cancellation/deadline/race increments only after that review.
+2. Select the next open prerequisite domain from the progress ledger, starting
+   with Kubernetes finalizer cleanup or cloud IAM/cost fundamentals.
+3. Do not begin Phase 1 until the remaining targeted prerequisite evidence is
+   sufficient for placement.
 4. Update progress records only from observed evidence.
 
 ## Next action
-Write and review TestRunContinuesAfterJobError before implementing the first worker-pool increment.
+Select and scaffold the next open prerequisite exercise; Kubernetes finalizer
+cleanup is the highest direct control-plane dependency.
+
+## End-of-session checkpoint — 2026-11-02
+
+- **Work completed:** The learner implemented and explained a bounded,
+  cancellable Go worker pool with isolated ordinary job errors, bounded worker
+  concurrency, single-owner result collection, config validation, cooperative
+  cancellation, partial-result semantics, and per-job child deadlines.
+- **Final verification:** `go test -race ./labs/prerequisites/workerpool
+  -count=50 -timeout=10s` passed in `2.472s`. Benchmarks, profiles, fuzzing,
+  property tests, and model checking were **not run**.
+- **Graphify:** **skipped** — no configured semantic backend and no existing
+  graph artifacts; no `graphify-out/` files were created, refreshed, reviewed,
+  or staged.
+- **Remaining gaps:** Kubernetes finalizer/idempotent cleanup, cloud IAM/cost,
+  Git bisection, container CI smoke testing, Linux interpretation refresh, and
+  Linux-VM kernel OOM evidence remain open. Rust remains deferred by design.
+- **Next action:** Scaffold and complete the Kubernetes finalizer/idempotent
+  cleanup exercise before Phase 1 placement.
+- **Sharing:** Local/uncommitted; no commit or push was performed.
 
 ## Project-studio scaffold
 

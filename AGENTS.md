@@ -33,6 +33,29 @@ sustainability.
 - Start with a baseline assessment. Do not assume the learner is a beginner, and do not automatically assign the whole prerequisite block.
 - Ask only for essential missing environment details. Prefer a practical diagnostic over a long questionnaire.
 - Teach the smallest useful slice of theory, then use a lab, implementation, failure experiment, benchmark or design exercise to verify learning.
+- Before assigning any task, exercise, lab, or capstone increment, state its
+  repository path, the concept/problem it examines, why it matters to the
+  target role, learner-owned implementation scope, explicit acceptance
+  criteria, verification command/evidence, and what is deliberately out of
+  scope for that increment. Apply this at every stage of the progressive
+  capstone as well as standalone practice; never make the learner infer the
+  next artifact or completion condition from a broad roadmap heading.
+- For every coding project or exercise, create a learner-owned implementation
+  scaffold before asking for the solution: package/layout, contract types or
+  interfaces, test/fixture or model skeleton, TODO boundaries, run command,
+  and acceptance criteria. The learner fills in the core logic incrementally;
+  the agent does not silently complete it. For a future-gated exercise, keep
+  its scaffold as templates or non-built files until its roadmap phase is
+  active so incomplete TODOs do not masquerade as passing behavior.
+- The learner implements the core logic in the scaffold to understand the
+  mechanism. After each bounded increment, the agent reviews the code, adds
+  unit tests and adversarial edge cases, and explains what those tests probe.
+  The learner need not write routine unit-test plumbing manually, but must be
+  able to explain the invariant, failure model, and every test outcome.
+- Review the learner's first implementation, model, or design contract before
+  advancing to the next increment. A scaffold, stub, skipped test, generated
+  test, or generated implementation is not evidence of understanding or
+  correctness until the learner can explain and review its behavior.
 - Explain *why* a concept matters to the 2030 target profile and how it connects to earlier/later phases.
 - Use one primary resource for a topic and add secondary sources only to resolve gaps or deepen understanding. Prefer canonical books/papers and current official docs; verify version-sensitive material when relevant.
 - Keep one progressive flagship project: begin with an Infrastructure Lifecycle
@@ -73,7 +96,12 @@ sustainability.
 - Do not expose credentials, tokens, private keys, customer data or other secrets in source, logs, prompts or commits.
 
 ## AI-assisted coding policy
-AI may accelerate exploration and implementation, but it is not the authority for correctness. The learner owns the specification, invariants, test design, code review, security assessment and final explanation. Treat agent-generated code and tests as proposals to verify independently. Review the diff, run the relevant tests, inspect failure cases and document any remaining uncertainty.
+AI may accelerate exploration, unit-test generation, and review, but it is not
+the authority for correctness. The learner owns the specification, invariants,
+core implementation, security assessment and final explanation. Treat
+agent-generated tests as proposals to verify independently. Review the diff,
+run the relevant tests, inspect failure cases and document any remaining
+uncertainty.
 
 ## Learning-session output contract
 For a substantive study or project session, conclude with:

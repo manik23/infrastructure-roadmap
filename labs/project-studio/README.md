@@ -12,16 +12,31 @@ exercises isolate mechanisms that make that platform credible.
 
 1. Open only the exercise mapped to the active phase; satisfy its gate first.
 2. Read the listed bounded primary resource when it is marked required.
-3. Write the first test, model, or design contract. Review it together before
-   implementation.
-4. Fill in one learner-owned TODO at a time. Generated code is a proposal,
+3. Implement one learner-owned increment, then review its invariant and code.
+4. The agent adds unit tests and edge cases; generated code is a proposal,
    never evidence by itself.
 5. Run the stated verification, record exact output, then update progress and
    the mapped revision note.
 
-Use [REVIEW.md](REVIEW.md) for every implementation review. No Go package is
-pre-created merely to contain failing placeholder code; create code and tests
-together when an exercise is activated.
+## Required task card
+
+Before any catalog exercise or capstone stage begins, the coaching session must
+state its exact repository path, concept/problem, target-role relevance,
+learner-owned implementation scope, explicit acceptance criteria, verification
+command/evidence, and deliberate out-of-scope boundary. A roadmap phase title
+or project brief alone is not an assignment or proof of completion.
+
+Use [REVIEW.md](REVIEW.md) for every implementation review. When an exercise
+is activated, create its learner-owned source/test scaffold before asking for
+logic: package layout, contract types/interfaces, test or fixture/model
+skeleton, explicit TODO boundaries, run command, and acceptance criteria.
+The learner implements the core logic for the active increment. The agent then
+reviews it and generates ordinary unit tests and fixtures for its stated
+behavior and edge cases. The learner reviews the invariant, failure model, and
+generated assertions rather than manually typing boilerplate tests.
+Future-gated exercises may retain templates/non-built starter files until
+activation so placeholder behavior cannot make `go test ./...` misleadingly
+green.
 
 The numeric identifiers are stable catalog IDs, not permission to start work
 out of sequence. The roadmap phase/week gate below determines the actual order.

@@ -21,13 +21,20 @@ Use it when the learner asks to start the roadmap, assess prerequisites, study a
 
 ### 2. State a small objective
 State in a few lines:
+- exact repository path for the task or artifact;
 - target capability and why it matters for the target role;
 - prerequisites and key concepts;
+- learner-owned implementation scope and explicit out-of-scope boundary;
 - expected artifact or demonstration;
 - measurable acceptance criteria;
+- verification command and the evidence it can and cannot establish;
 - selected primary resource and any optional reference.
 
 Do not provide a large undifferentiated link dump. Choose a canonical resource from the roadmap and assign a bounded section, lab or experiment.
+
+Apply this task card to every standalone exercise and every progressive
+capstone increment. Do not make the learner infer a path, task boundary, or
+completion condition from a broad roadmap phase heading.
 
 ### 3. Teach the conceptual model
 Explain the concepts in this sequence when applicable:
@@ -49,7 +56,22 @@ Before code, specify expected behavior, failure cases and test signals. Explain 
 ### 5. Implement in small increments
 - Use Go for the core roadmap unless the roadmap or user explicitly selects otherwise.
 - Keep Rust in the follow-up sequence unless the user explicitly requests Rust now or a concrete prerequisite/role justifies it.
-- Start with an interface/spec and a minimal vertical slice. Avoid unnecessary frameworks and overengineering.
+- Start with an interface/spec and a minimal vertical slice. For each coding
+  exercise, prepare a learner-owned scaffold before implementation: directory
+  layout, contract types/interfaces, test/fixture or model skeleton, explicit
+  TODO boundaries, verification command, and acceptance criteria. The learner
+  fills in the core logic; do not silently solve it for them. For exercises
+  gated to a future phase, keep starter code as templates or non-built files
+  until activation so unimplemented stubs cannot look like working behavior.
+- Have the learner implement core logic in each scaffolded increment. Then
+  review that code, generate unit tests and ordinary fixtures to probe its
+  stated behavior and adversarial edge cases, and explain every generated
+  assertion. The learner need not write unit-test plumbing manually but must
+  own the invariant, failure model, and interpretation of test outcomes.
+- Review the first learner implementation, model, or design contract before
+  advancing. A scaffold, stub, skipped test, generated test, or generated
+  solution is not learning evidence by itself.
+- Avoid unnecessary frameworks and overengineering.
 - Ask the learner to predict behavior or explain a decision at useful checkpoints; do not turn all sessions into passive code delivery.
 - AI-generated code is a draft. Review it for correctness, concurrency, cleanup, security, compatibility and operational consequences.
 
@@ -111,6 +133,9 @@ Maintain continuous practice in Go DSA, concurrency, low-level design, distribut
 - Do not equate reading with mastery.
 - Do not start a new tool before stating what problem it solves.
 - Do not build every advanced topic from scratch; use focused labs and production design studies where appropriate.
+- Do not substitute a prose brief for a requested coding scaffold: give the
+  learner a bounded place to write the logic, while keeping inactive exercises
+  out of the compiled/tested surface until their phase begins.
 - Do not silently delete or reorder follow-up topics.
 - Do not claim a command was run, a file was edited, a source was checked or a result was verified unless that happened.
 - Do not recommend costly cloud/GPU work without bounded duration, budget and teardown.
